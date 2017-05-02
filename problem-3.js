@@ -11,7 +11,7 @@
 function isPrime(test) {
   let prime = true;
   let divisor = 2;
-  while(prime && divisor < Math.ceil(test / 2)) {
+  while(prime && divisor <= Math.ceil(test / 2)) {
     prime = test % divisor !== 0;
     divisor++;
   }
