@@ -12,36 +12,30 @@ function isPalindrome(test) {
 }
 
 // Find the largest palindrome product of X-digit numbers
-function findLargest(numDigits) {
+function findLargestPalindromeProduct(numDigits) {
   let upper = '';
   for(let i = 1; i <= numDigits; i++) {
     upper += 9;
   }
   let lower = parseInt(upper.substring(0, upper.length - 1));
   upper = parseInt(upper);
-  let test = Math.pow(upper, 2);
-
+  let test = Math.pow(upper, 2) + 1;
   let found = false;
-  let x = null, y = null;
-  let perf = 0;
   while(!found) {
-    perf++;
+    test--;
     if(isPalindrome(test)) {
-      let counter = upper;
+      let factor = upper;
       let sqrt = Math.sqrt(test);
-      while(!found && counter >= sqrt && counter > lower) {
-        if(test % counter === 0 && test / counter <= upper) {
+      while(!found && factor >= sqrt && factor > lower) {
+        if(test % factor === 0 && test / factor <= upper) {
           found = true;
-          x = counter;
-          y = test / counter;
+          console.log(test, factor, test / factor);
         }
-        counter--;
-        perf++;
+        factor--;
       }
     }
-    test--;
   }
-  console.log(x, y, test + 1, perf);
+  return test;
 }
 
-findLargest(3);
+console.log('The largest palindrome product is:', findLargestPalindromeProduct(3));
