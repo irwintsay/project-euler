@@ -24,10 +24,5 @@ function sumOfMultiples(range, multiples) {
   return sum;
 }
 
-// Return true if test number is an even multiple of `multiple`
-function testMultiple(test, multiple) {
-  return test % multiple === 0 ? true : false;
-}
-
-console.log(sumOfMultiples(10, [3, 5]));
-console.log(sumOfMultiples(1000, [3, 5]));
+console.log('The sum of all multiples of 3 and 5 below 10: ', sumOfMultiples(10, [3, 5]));
+console.log('The sum of all multiples of 3 and 5 below 1000: ', sumOfMultiples(1000, [3, 5]));
